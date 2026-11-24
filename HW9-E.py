@@ -1,10 +1,13 @@
-usage = int(input())
+n = input().strip()
+orig_n = n
+pass_count = 1
 
-if usage <= 120:
-    bill = usage * 2.10
-elif usage <= 500:
-    bill = 120 * 2.10 + (usage - 120) * 3.02
-else:
-    bill = 120 * 2.10 + 380 * 3.02 + (usage - 500) * 4.39
+while True:
+    digit_sum = sum(int(d) for d in n)
+    print(f"Pass {pass_count} : {digit_sum}")
+    if digit_sum <= 9:
+        break
+    n = str(digit_sum)
+    pass_count += 1
 
-print(f"NT${bill:.1f}")
+print(f"Digital Root of {orig_n} : {digit_sum}")
