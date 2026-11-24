@@ -1,16 +1,6 @@
-a, b = map(int, input().split())
-start, end = min(a, b), max(a, b)
+year = int(input())
 
-primes = []
-for num in range(start, end + 1):
-    if num < 2:
-        continue
-    is_prime = True
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            is_prime = False
-            break
-    if is_prime:
-        primes.append(str(num))
-
-print(" ".join(primes))
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year} : Leap Year")
+else:
+    print(f"{year} : Not a Leap Year")
